@@ -1,14 +1,50 @@
-div.thumbnail{
+body{
+    background: #e2e2e2;
+    padding:0;
+    margin:0;
+}
+
+.navbar{
+    border-radius: 0;
+}
+.side-bar{
+    padding-top:30px;
+    background:#6e6e6e;
+}
+.nav-buttons{
+    padding: 0 15px;
+    width:100%;
+    border-radius:0;
+}
+    .nav-buttons .btn{
+        width:50%;
+    }
+.thumbnail{
     overflow: hidden;
     padding:0;
     position: relative;
     float:left;
     width:100%;
+    border-radius: 0;
+    background:#2e2e2e;
+    color:#fff;
+    border-color: #020202;
+}
+.thumbnail>.caption{
+    color:#fff;
+    font-size: 1.25em;
+}
+.thumbnail>.caption a{
+    color:#fff;
 }
 
+
 .gutter{
-    margin: 15px;
+    margin: 0 15px;
 }
+
+
+.thumbnail>img.img-cube,
 .thumbnail>img.img-cube{
     position: absolute;
     top: -9999px;
@@ -17,6 +53,9 @@ div.thumbnail{
     right: -9999px;
     margin: auto;
     max-width:inherit;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
 }
 .title-overlay {
     bottom:0px;
@@ -56,7 +95,13 @@ div.thumbnail{
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .thumbnail>img.img-cube,.thumbnail-cube{
+   .thumbnail>img.img-cube,
+   .thumbnail-cube{
         height:300px;
+    }
+    .thumbnail.thumbnail-side .caption,
+    .thumbnail>img.img-cube-side{
+        height:100px;
+        font-size: .9em;
     }
 }

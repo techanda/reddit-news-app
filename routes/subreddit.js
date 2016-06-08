@@ -7,8 +7,28 @@ var express             = require("express"),
 //SHOW ROUTE
 router.get("/:subreddit", function (req,res) {
     var request = require('request');
-    request('https://www.reddit.com/r/' + req.params.subreddit + '.json', function (error, response, body) {
+    var count   = null;
+    var after   = null;
+    
+    req.query.count ? count = req.query.count : "" ;
+    req.query.after ? after = req.query.after : "" ;
+    if (count && count != "" && after && after != "") {
+        var url = 'https://www.reddit.com/r/' + req.params.subreddit + '.json?count=' + count + "&after=" + after
+        displaySubreddit(url,req,res);   
+    } else {
+        var url = 'https://www.reddit.com/r/' + req.params.subreddit + '.json'
+        displaySubreddit(url,req,res); 
+    }
+    
+
+});
+
+module.exports = router;
+
+function displaySubreddit(url,req,res){
+    request(url, function (error, response, body) {
         if (!error && response.statusCode == 200) {
+
             var parsedData = JSON.parse(body).data.children;
             var postDataImg = [];
             var postDataTxt = [];
@@ -41,13 +61,13 @@ router.get("/:subreddit", function (req,res) {
                 // res.send(postDataTxt);
                 res.render("subreddit/",{
                     postsWithImages: postDataImg.sort(function(a,b) {return (b.score > a.score) ? 1 : ((a.score > b.score) ? -1 : 0);} ), 
-                    postsTextOnly: postDataTxt.sort(function(a,b) {return (b.score > a.score) ? 1 : ((a.score > b.score) ? -1 : 0);} )
+                    postsTextOnly: postDataTxt.sort(function(a,b) {return (b.score > a.score) ? 1 : ((a.score > b.score) ? -1 : 0);} ),
+                    subreddit: req.params.subreddit,
+                    allPosts: parsedData.sort(function(a,b) {return (b.score > a.score) ? 1 : ((a.score > b.score) ? -1 : 0);} )
                 });
 
             })
             
         }
-    }) 
-});
-
-module.exports = router;
+    });
+}
