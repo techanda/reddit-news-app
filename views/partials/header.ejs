@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Reddit News App</title>
+    <title>Reddit Visual Wrapper</title>
     <script src='https://code.jquery.com/jquery-2.2.3.min.js'></script>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -11,14 +11,19 @@
     <nav class='navbar navbar-inverse'>
       <div class='container'>
         <div class='navbar-header'>
-          <a href='/' class='navbar-brand'>Reddit News App</a>
+          <a href='/' class='navbar-brand'>Reddit Visual Wrapper</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
-              <li><a href="./news">r/News</a></li>
-              <li><a href="./gaming">r/Gaming</a></li>
+              <li><a href="/">Front Page</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/r/news">r/News</a></li>
+              <li><a href="/r/gaming">r/Gaming</a></li>
+              <li><a href="/r/funny">r/Funny</a></li>
+              <li><a href="/r/sysadmin">r/SysAdmin</a></li>
+              <li><a href="/r/aww">r/Aww</a></li>
             </ul>
           </li>
         </ul>

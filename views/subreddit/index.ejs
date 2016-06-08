@@ -7,7 +7,7 @@
             
                 <% if (i === 1) { %>
                     <div class="col-md-12">
-                        <div href="<%= post.st.url %>" class="thumbnail">
+                        <div href="<%= post.st.url %>" class="thumbnail big-image">
                             <div class='thumbnail-img'>
                                 <img class="img-responsive" style="width:100%" src="<%= post.og.ogImage.url %>">
                                 <div class='title-overlay'>
@@ -37,21 +37,22 @@
                 <% i++ %>
             <% }); %>
             
-            <div class="btn-group nav-buttons" role="group" aria-label="...">
-                    <a href="./<%= subreddit %>?count=25&before=<%= allPosts[0].data.name %>" class="btn btn-danger">Previous</a>
-                    <a href="./<%= subreddit %>?count=25&after=<%= allPosts[24].data.name %>" class="btn btn-danger">Next</a>
-            </div>
+
             
         </div>
-        <div class="col-md-4 side-bar">
+        <div class="col-md-4">
             <% var i = 1; %>
             <% postsWithImages.forEach(function(post){ %>
                 <% if (i > 9 ) { %>
-                    <div class="col-md-6 ">
+                    <div class="col-md-6 side-bar ">
                         <div class="thumbnail thumbnail-side">
                             <img class="img-cube-side" src="<%= post.og.ogImage.url %>">
                             <div class='caption'>
-                                <p><a href="<%= post.st.url %>"><%= post.og.ogTitle %></a></p>
+                                <p>
+                                    <a href="<%= post.st.url %>" title="<%= post.og.ogTitle %>">
+                                        <%= post.og.ogTitle.length > 80 ? post.og.ogTitle.substring(0,80) + "..." : post.og.ogTitle %>
+                                    </a>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +62,7 @@
             
             
             <ul class='list-unstyled'>
-                <div class='col-md-12'>
+                <div class='col-md-12 side-bar'>
             <% postsTextOnly.forEach(function(post){ %>
                 
                     <div class='thumbnail'>
@@ -79,6 +80,10 @@
             </ul>
         </div>
     </div>
+                <div class="btn-group nav-buttons" role="group" aria-label="...">
+                    <a href="./<%= subreddit %>?count=25&before=<%= allPosts[0].data.name %>" class="btn btn-danger">Previous</a>
+                    <a href="./<%= subreddit %>?count=25&after=<%= allPosts[24].data.name %>" class="btn btn-danger">Next</a>
+            </div>
 </div>
 
 
