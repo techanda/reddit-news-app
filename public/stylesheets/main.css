@@ -40,6 +40,22 @@ body{
     margin: 0 15px;
 }
 
+.thumbnail-side{
+    height: 200px;
+}
+.thumbnail-side img{
+    /*max-width: none;*/
+    min-width:100%;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    object-fit: cover
+}
+.thumbnail-side .caption{
+    background:#2e2e2e;
+}
+
 .thumbnail>img.img-cube,
 .thumbnail>img.img-cube{
     position: absolute;
