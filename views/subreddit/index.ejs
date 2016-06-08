@@ -1,0 +1,60 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <% var i = 1; %>
+            <% postsWithImages.forEach(function(post){ %>
+            
+                <% if (i === 1) { %>
+                    <div class="col-md-12">
+                        <div href="<%= post.st.url %>" class="thumbnail">
+                            <div class='thumbnail-img'>
+                                <img class="img-responsive" style="width:100%" src="<%= post.og.ogImage.url %>">
+                                <div class='title-overlay'>
+                                    <h2><a href="<%= post.st.url %>"><%= post.og.ogTitle %></a></h2>
+                                </div>
+                            </div>
+                            <div class="caption">
+                                <% if (post.og.ogDescription && post.og.ogDescription != ""){ %>
+                                    <p><%= post.og.ogDescription %></p>
+                                    <p><%= post.st.score %></p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+
+                <% if (i !== 1 ) { %>
+                    <div class="col-md-6">
+                        <div class="thumbnail thumbnail-cube">
+                            <img class="img-cube" src="<%= post.og.ogImage.url %>">
+                            <div class='title-overlay'>
+                                <h4><a href="<%= post.st.url %>"><%= post.og.ogTitle %></a></h4>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                
+                <% i++ %>
+            <% }); %>
+        </div>
+        <div class="col-md-4">
+            <h2>Other Links</h2>
+            <ul class='list-unstyled'>
+            <% postsTextOnly.forEach(function(post){ %>
+                <% if (post.og.ogTitle && post.og.ogTitle) { %>
+                    <h4><a href="<%= post.st.url %>"><%= post.og.ogTitle %></a></h4>
+                <% } else { %>
+                    <h4><a href="<%= post.st.url %>"><%= post.st.title %></a></h4>
+                <% } %>
+                <hr>
+            <% }); %>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<% include ../partials/footer %>

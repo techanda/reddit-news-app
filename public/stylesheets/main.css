@@ -1,0 +1,62 @@
+div.thumbnail{
+    overflow: hidden;
+    padding:0;
+    position: relative;
+    float:left;
+    width:100%;
+}
+
+.gutter{
+    margin: 15px;
+}
+.thumbnail>img.img-cube{
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    max-width:inherit;
+}
+.title-overlay {
+    bottom:0px;
+    left:0px;
+    right:0px;
+    position: absolute;
+    text-transform:  uppercase;
+    background:rgba(0,0,0,.4);
+    color:#fff;
+    padding: 0 15px;
+}
+.title-overlay a{
+    color:#fff;
+}
+
+.thumbnail-img{
+    position:relative;
+}
+
+
+/* Extra small devices (phones, less than 767px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 767px and up) */
+@media (min-width: 767px) { 
+    .row-eq-height {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display:         flex;
+    }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px)  {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .thumbnail>img.img-cube,.thumbnail-cube{
+        height:300px;
+    }
+}
