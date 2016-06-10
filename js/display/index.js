@@ -13,8 +13,8 @@ functionObj.subreddit = function (url,req,res){
             var postDataImg = [];
             var postDataTxt = [];
             async.each(parsedData,function(post, next){
-                console.log(post.data.id);
-                ogScrape({'timeout': 2000, url: post.data.url},function(err, results){
+                // console.log(post.data.id);
+                ogScrape({'timeout': 3000, url: post.data.url},function(err, results){
                     if (err) {
                         var data = {
                             score:  post.data.score,
