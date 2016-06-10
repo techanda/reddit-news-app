@@ -9,6 +9,9 @@
                     <div class="col-md-12">
                         <div href="<%= post.st.url %>" class="thumbnail big-image">
                             <div class='thumbnail-img'>
+                                <a class="comments" href="http://reddit.com/<%=post.st.permalink %>">
+                                    <i class="fa fa-comments-o fa-2x" aria-hidden="true"></i>
+                                </a>
                                 <img class="img-responsive" style="width:100%" src="<%= post.og.ogImage.url %>">
                                 <div class='title-overlay'>
                                     <h2><a href="<%= post.st.url %>"><%= post.og.ogTitle %></a></h2>
@@ -26,6 +29,9 @@
                 <% if (i > 1 && i <= 9 ) { %>
                     <div class="col-md-6">
                         <div class="thumbnail thumbnail-cube">
+                            <a class="comments" href="http://reddit.com/<%=post.st.permalink %>">
+                                <i class="fa fa-comments-o" aria-hidden="true"></i>
+                            </a>
                             <img class="img-cube" src="<%= post.og.ogImage.url %>">
                             <div class='title-overlay'>
                                 <h4><a href="<%= post.st.url %>"><%= post.og.ogTitle %></a></h4>
@@ -41,43 +47,48 @@
             
         </div>
         <div class="col-md-4">
-            <% var i = 1; %>
-            <% postsWithImages.forEach(function(post){ %>
-                <% if (i > 9 ) { %>
-                    <div class="col-md-6 side-bar ">
-                        <div class="thumbnail thumbnail-side">
-                            <img class="img-cube-side" src="<%= post.og.ogImage.url %>">
-                            <div class='caption'>
-                                <p>
-                                    <a href="<%= post.st.url %>" title="<%= post.og.ogTitle %>">
-                                        <%= post.og.ogTitle.length > 80 ? post.og.ogTitle.substring(0,80) + "..." : post.og.ogTitle %>
-                                    </a>
-                                </p>
+            <div class='side-bar'>
+                <% var i = 1; %>
+                <% postsWithImages.forEach(function(post){ %>
+                    <% if (i > 9 ) { %>
+                        <div class="col-md-6">
+                            <div class="thumbnail thumbnail-side">
+                                <a class="comments" href="http://reddit.com/<%=post.st.permalink %>">
+                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                </a>
+                                <img class="img-cube-side" src="<%= post.og.ogImage.url %>">
+                                <div class='caption'>
+                                    <p>
+                                        <a href="<%= post.st.url %>" title="<%= post.og.ogTitle %>">
+                                            <%= post.og.ogTitle.length > 80 ? post.og.ogTitle.substring(0,80) + "..." : post.og.ogTitle %>
+                                        </a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <% } %>
-                <% i++ %>
-            <% }); %>
-            
-            
-            <ul class='list-unstyled'>
-                <div class='col-md-12 side-bar'>
-            <% postsTextOnly.forEach(function(post){ %>
+                    <% } %>
+                    <% i++ %>
+                <% }); %>
                 
-                    <div class='thumbnail'>
-                        <div class='caption'>
-                            <% if (post.og.ogTitle && post.og.ogTitle) { %>
-                                <h4><a href="<%= post.st.url %>"><%= post.og.ogTitle %></a></h4>
-                            <% } else { %>
-                                <h4><a href="<%= post.st.url %>"><%= post.st.title %></a></h4>
-                            <% } %>
+                
+                <ul class='list-unstyled'>
+                    <div class='col-md-12'>
+                <% postsTextOnly.forEach(function(post){ %>
+                    
+                        <div class='thumbnail'>
+                            <div class='caption'>
+                                <% if (post.og.ogTitle && post.og.ogTitle) { %>
+                                    <h4><a href="<%= post.st.url %>"><%= post.og.ogTitle %></a></h4>
+                                <% } else { %>
+                                    <h4><a href="<%= post.st.url %>"><%= post.st.title %></a></h4>
+                                <% } %>
+                            </div>
                         </div>
-                    </div>
-               
-            <% }); %>
-             </div>
-            </ul>
+                   
+                <% }); %>
+                 </div>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="btn-group nav-buttons" role="group" aria-label="...">

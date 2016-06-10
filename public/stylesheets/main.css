@@ -3,7 +3,20 @@ body{
     padding:0 0 50px 0;
     margin:0;
 }
-
+.comments{
+    z-index:999;
+    position:absolute;
+    background:#0066cc;
+    padding: 5px;
+    right:0;
+    top:0;
+    color:#fff;
+    border-left:1px #2e2e2e solid;
+    border-bottom:1px #2e2e2e solid;
+}
+    .comments:hover{
+        color:#bbb;
+    }
 .navbar{
     border-radius: 0;
 }
@@ -114,6 +127,8 @@ body{
     .side-bar{
     padding-top:30px;
     background:#6e6e6e;
+    display:inline-block;
+    height:100%;
 }
     .thumbnail>img.img-cube,
     .thumbnail-cube{

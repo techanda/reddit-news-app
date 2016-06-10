@@ -13,6 +13,8 @@ router.get("/:subreddit", function (req,res) {
     
     req.query.count ? count = req.query.count : "" ;
     req.query.after ? after = req.query.after : "" ;
+    
+
     if (count && count != "" && after && after != "") {
         var url = 'https://www.reddit.com/r/' + req.params.subreddit + '.json?count=' + count + "&after=" + after
         display.subreddit(url,req,res);   

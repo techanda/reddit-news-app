@@ -13,19 +13,30 @@ functionObj.subreddit = function (url,req,res){
             var postDataImg = [];
             var postDataTxt = [];
             async.each(parsedData,function(post, next){
-                ogScrape({url: post.data.url},function(err, results){
+                console.log(post.data.id);
+                ogScrape({'timeout': 2000, url: post.data.url},function(err, results){
                     if (err) {
                         var data = {
-                            score: post.data.score,
-                            og:   {ogTitle: post.data.title},
-                            st:     post.data
+                            score:  post.data.score,
+                            og:     {ogTitle: post.data.title},
+                            st:     {
+                                        permalink:  post.data.permalink,
+                                        url:        post.data.url,
+                                        title:      post.data.title,
+                                        preview:    post.data.preview
+                                    }
                         }
                         postDataTxt.push(data);
                     } else {
                         var data = {
                             score: post.data.score,
                             og:   results.data,
-                            st:     post.data
+                            st:     {
+                                        permalink:  post.data.permalink,
+                                        url:        post.data.url,
+                                        title:      post.data.title,
+                                        preview:    post.data.preview
+                                    }
                         }
                         
                         if (data.og.ogImage && data.og.ogImage.url && data.og.ogImage.url != "") {
@@ -34,7 +45,6 @@ functionObj.subreddit = function (url,req,res){
                             postDataTxt.push(data);
                         }
                     }
-
                     next();
                 })
             }, function(err, next){
