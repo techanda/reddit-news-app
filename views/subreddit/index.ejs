@@ -10,7 +10,11 @@
                         <div href="<%= post.st.url %>" class="thumbnail big-image">
                             <div class='thumbnail-img'>
                                 <a class="comments" href="http://reddit.com/<%=post.st.permalink %>">
-                                    <i class="fa fa-comments-o fa-2x" aria-hidden="true"></i>
+                                    <%= post.st.comments  %>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-square fa-stack-2x"></i>
+                                        <i class="fa fa-comments-o fa-stack-1x fa-inverse"></i>
+                                    </span>
                                 </a>
                                 <img class="img-responsive" style="width:100%" src="<%= post.og.ogImage.url %>">
                                 <div class='title-overlay'>
@@ -30,7 +34,11 @@
                     <div class="col-md-6">
                         <div class="thumbnail thumbnail-cube">
                             <a class="comments" href="http://reddit.com/<%=post.st.permalink %>">
-                                <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                <%= post.st.comments  %>
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-comments-o fa-stack-1x fa-inverse"></i>
+                                </span>
                             </a>
                             <img class="img-cube" src="<%= post.og.ogImage.url %>">
                             <div class='title-overlay'>
@@ -54,7 +62,10 @@
                         <div class="col-md-6">
                             <div class="thumbnail thumbnail-side">
                                 <a class="comments" href="http://reddit.com/<%=post.st.permalink %>">
-                                    <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-square fa-stack-2x"></i>
+                                        <i class="fa fa-comments-o fa-stack-1x fa-inverse"></i>
+                                    </span>
                                 </a>
                                 <img class="img-cube-side" src="<%= post.og.ogImage.url %>">
                                 <div class='caption'>
@@ -75,7 +86,13 @@
                     <div class='col-md-12'>
                 <% postsTextOnly.forEach(function(post){ %>
                     
-                        <div class='thumbnail'>
+                        <div class='thumbnail no-image'>
+                            <a class="comments" href="http://reddit.com/<%=post.st.permalink %>">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-comments-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
                             <div class='caption'>
                                 <% if (post.og.ogTitle && post.og.ogTitle) { %>
                                     <h4><a href="<%= post.st.url %>"><%= post.og.ogTitle %></a></h4>

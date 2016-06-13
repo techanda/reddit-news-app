@@ -6,19 +6,24 @@ body{
 .comments{
     z-index:999;
     position:absolute;
-    background:#0066cc;
     padding: 5px;
     right:0;
     top:0;
     color:#fff;
-    border-left:1px #2e2e2e solid;
-    border-bottom:1px #2e2e2e solid;
 }
+    .comments .fa-inverse{
+        color:#0066cc;
+    }
     .comments:hover{
-        color:#bbb;
+        background:rgba(0,0,0,.4);
+        color:#eee;
+        text-decoration: none
     }
 .navbar{
     border-radius: 0;
+}
+.thumbnail.no-image{
+    padding-right:35px;
 }
 
 .nav-buttons{

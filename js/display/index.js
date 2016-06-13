@@ -23,7 +23,8 @@ functionObj.subreddit = function (url,req,res){
                                         permalink:  post.data.permalink,
                                         url:        post.data.url,
                                         title:      post.data.title,
-                                        preview:    post.data.preview
+                                        preview:    post.data.preview,
+                                        comments:   post.data.num_comments
                                     }
                         }
                         postDataTxt.push(data);
@@ -35,7 +36,8 @@ functionObj.subreddit = function (url,req,res){
                                         permalink:  post.data.permalink,
                                         url:        post.data.url,
                                         title:      post.data.title,
-                                        preview:    post.data.preview
+                                        preview:    post.data.preview,
+                                        comments:   post.data.num_comments
                                     }
                         }
                         
