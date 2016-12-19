@@ -7,24 +7,22 @@
             
                 <% if (i === 1) { %>
                     <div class="col-md-12">
-                        <div href="<%= post.st.url %>" class="thumbnail big-image">
+                        <div class="thumbnail big-image">
                             <div class='thumbnail-img'>
-                                <a class="comments" href="http://reddit.com/<%=post.st.permalink %>">
-                                    <%= post.st.comments  %>
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fa fa-square fa-stack-2x"></i>
-                                        <i class="fa fa-comments-o fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
                                 <img class="img-responsive" style="width:100%" src="<%= post.og.ogImage.url %>">
                                 <div class='title-overlay'>
                                     <h2><a href="<%= post.st.url %>"><%= post.og.ogTitle %></a></h2>
                                 </div>
                             </div>
-                            <div class="caption">
                                 <% if (post.og.ogDescription && post.og.ogDescription != ""){ %>
-                                    <p><%= post.og.ogDescription %></p>
+                                    <div class="caption">
+                                        <p><%= post.og.ogDescription %></p>
+                                    </div>
                                 <% } %>
+                            <div class="action-box">
+                                <a class='action-button comments' href="http://reddit.com/<%=post.st.permalink %>" title="<%= post.st.comments  %> comments">
+                                    <i class="fa fa-comments-o fa-2x" aria-hidden="true"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -42,7 +40,13 @@
                             </a>
                             <img class="img-cube" src="<%= post.og.ogImage.url %>">
                             <div class='title-overlay'>
+                                
                                 <h4><a href="<%= post.st.url %>"><%= post.og.ogTitle %></a></h4>
+                            <div class="action-box action-box-sm">
+                                <a class='action-button comments' href="http://reddit.com/<%=post.st.permalink %>" title="<%= post.st.comments  %> comments">
+                                    <i class="fa fa-comments-o fa-2x" aria-hidden="true"></i>
+                                </a>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -61,21 +65,21 @@
                     <% if (i > 9 ) { %>
                         <div class="col-md-6">
                             <div class="thumbnail thumbnail-side">
-                                <a class="comments" href="http://reddit.com/<%=post.st.permalink %>">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fa fa-square fa-stack-2x"></i>
-                                        <i class="fa fa-comments-o fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
                                 <img class="img-cube-side" src="<%= post.og.ogImage.url %>">
                                 <div class='caption'>
                                     <p>
                                         <a href="<%= post.st.url %>" title="<%= post.og.ogTitle %>">
-                                            <%= post.og.ogTitle.length > 80 ? post.og.ogTitle.substring(0,80) + "..." : post.og.ogTitle %>
+                                            <%= post.og.ogTitle.length > 60 ? post.og.ogTitle.substring(0,60) + "..." : post.og.ogTitle %>
                                         </a>
                                     </p>
                                 </div>
+                            <div class="action-box action-box-sm">
+                                <a class='action-button comments' href="http://reddit.com/<%=post.st.permalink %>" title="<%= post.st.comments  %> comments">
+                                    <i class="fa fa-comments-o fa-2x" aria-hidden="true"></i>
+                                </a>
                             </div>
+                            </div>
+                            
                         </div>
                     <% } %>
                     <% i++ %>

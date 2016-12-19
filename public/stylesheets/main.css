@@ -3,22 +3,42 @@ body{
     padding:0 0 50px 0;
     margin:0;
 }
-.comments{
-    z-index:999;
-    position:absolute;
-    padding: 5px;
-    right:0;
-    top:0;
-    color:#fff;
+.action-box-sm .action-button{
+    min-height:25px;
+    line-height: 25px;
+    padding: 0 10px;
 }
-    .comments .fa-inverse{
-        color:#0066cc;
+.action-box-sm .action-button i{
+    font-size: 1.5em;
+    line-height:25px;
+}
+.action-box{
+    /*display:inline-block;*/
+    /*min-height: 30px;*/
+    background:#0066cc;
+    width:100%;
+    position: relative;
+}
+    a.action-button{
+        display:inline-block;
+        line-height: 50px;
+        min-height:50px;
+        padding: 0 30px;
+        color:#fff;
+        float:right;
     }
-    .comments:hover{
-        background:rgba(0,0,0,.4);
-        color:#eee;
-        text-decoration: none
-    }
+        a.action-button i{
+            line-height: 50px;
+        }
+        a.action-button:hover{
+            text-decoration: none;
+        }
+        a.action-button.comments{
+            background:#ff5050;
+        }
+        a.action-button.comments:hover{
+            background:#e60000;
+        }
 .navbar{
     border-radius: 0;
 }
@@ -59,20 +79,24 @@ body{
 }
 
 .thumbnail-side{
-    height: 200px;
+    height: 230px;
+    padding-bottom:30px;
 }
-.thumbnail-side img{
-    /*max-width: none;*/
-    min-width:100%;
-    top: -9999px;
-    bottom: -9999px;
-    left: -9999px;
-    right: -9999px;
-    object-fit: cover
-}
-.thumbnail-side .caption{
-    background:#2e2e2e;
-}
+    .thumbnail-side img{
+        /*max-width: none;*/
+        min-width:100%;
+        top: -9999px;
+        bottom: -9999px;
+        left: -9999px;
+        right: -9999px;
+        object-fit: cover
+    }
+    .thumbnail-side .caption{
+        background:#2e2e2e;
+    }
+    .thumbnail-side .action-box{
+        bottom:0;
+    }
 
 .thumbnail>img.img-cube,
 .thumbnail>img.img-cube{
@@ -95,12 +119,15 @@ body{
     text-transform:  uppercase;
     background:rgba(0,0,0,.4);
     color:#fff;
-    padding: 0 15px;
 }
 .title-overlay a{
     color:#fff;
 }
-
+.title-overlay h2,
+.title-overlay h3,
+.title-overlay h4{
+    margin:10px;
+}
 .thumbnail-img{
     position:relative;
 }
